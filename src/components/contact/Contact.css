@@ -1,0 +1,259 @@
+.contact-page {
+    min-height: calc(100vh - 90px);
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 90px 6%;
+
+    position: relative;
+}
+
+.contact-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        90deg,
+        rgba(0,0,0,.75),
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.25)
+    );
+}
+
+.contact-container {
+    width: 100%;
+    max-width: 1300px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+
+    position: relative;
+    z-index: 2;
+}
+
+/* ================= LEFT SIDE ================= */
+
+.contact-left {
+    text-align: left;
+}
+
+.contact-tag {
+    display: inline-block;
+
+    background: #FFD54F;
+    color: #111;
+
+    padding: 10px 22px;
+
+    border-radius: 30px;
+
+    font-weight: 700;
+
+    margin-bottom: 25px;
+}
+
+.contact-left h1 {
+    color: white;
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.contact-left p {
+    color: #ededed;
+    font-size: 18px;
+    line-height: 1.9;
+    margin-bottom: 40px;
+}
+
+/* ================= CONTACT INFO ================= */
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    align-items: flex-start;
+}
+
+.info-card {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 18px;
+
+    width: 100%;
+
+    background: rgba(255,255,255,.08);
+
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    padding: 22px;
+
+    border-radius: 20px;
+
+    text-align: left;
+}
+
+.info-icon {
+    color: #FFD54F;
+    font-size: 30px;
+    flex-shrink: 0;
+}
+
+.info-card h3 {
+    color: white;
+    margin-bottom: 6px;
+}
+
+.info-card p,
+.info-card a {
+    color: #ddd;
+    text-decoration: none;
+    word-break: break-word;
+}
+
+.info-card a:hover {
+    color: #FFD54F;
+}
+
+/* ================= RIGHT SIDE ================= */
+
+.contact-right {
+    background: rgba(255,255,255,.08);
+
+    backdrop-filter: blur(14px);
+
+    border-radius: 25px;
+
+    padding: 40px;
+
+    border: 1px solid rgba(255,255,255,.12);
+}
+
+.contact-right form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    align-items: flex-start;
+}
+
+.contact-right input,
+.contact-right textarea {
+    width: 100%;
+
+    padding: 16px 18px;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    background: rgba(255,255,255,.08);
+
+    color: white;
+
+    outline: none;
+
+    font-size: 16px;
+
+    box-sizing: border-box;
+}
+
+.contact-right input::placeholder,
+.contact-right textarea::placeholder {
+    color: #cfcfcf;
+}
+
+.contact-right textarea {
+    resize: vertical;
+    min-height: 160px;
+}
+
+.contact-right button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    background: #FFD54F;
+
+    color: #111;
+
+    padding: 16px 30px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.contact-right button:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 12px 30px rgba(255,213,79,.45);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 900px) {
+
+    .contact-page {
+        padding: 100px 20px 60px;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    /* Keep everything LEFT aligned */
+    .contact-left {
+        text-align: left;
+    }
+
+    .contact-left h1 {
+        font-size: 2.8rem;
+    }
+
+    .contact-left p {
+        font-size: 16px;
+    }
+
+    .contact-info {
+        align-items: flex-start;
+    }
+
+    .info-card {
+        justify-content: flex-start;
+        align-items: flex-start;
+        text-align: left;
+        width: 100%;
+    }
+
+    .contact-right {
+        padding: 30px 20px;
+    }
+
+    .contact-right form {
+        align-items: flex-start;
+    }
+
+    .contact-right input,
+    .contact-right textarea,
+    .contact-right button {
+        width: 100%;
+    }
+}

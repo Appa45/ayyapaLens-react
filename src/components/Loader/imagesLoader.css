@@ -1,0 +1,210 @@
+/* ============================= */
+/* Loader */
+/* ============================= */
+
+.loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#000;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    z-index:999999;
+}
+
+
+/* ============================= */
+/* Content */
+/* ============================= */
+
+.loader-content{
+
+    text-align:center;
+
+    z-index:5;
+}
+
+
+/* ============================= */
+/* Camera */
+/* ============================= */
+
+.camera{
+
+    font-size:120px;
+
+    color:#FFD54F;
+
+    margin-bottom:25px;
+
+    animation:cameraZoom 2s ease-in-out infinite;
+}
+
+
+/* ============================= */
+/* Heading */
+/* ============================= */
+
+.loader h1{
+
+    color:white;
+
+    font-size:60px;
+
+    letter-spacing:8px;
+
+    font-weight:700;
+}
+
+.loader span{
+
+    color:#FFD54F;
+}
+
+
+/* ============================= */
+/* Loading dots */
+/* ============================= */
+
+.loading-dots{
+
+    margin-top:35px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+}
+
+.loading-dots span{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    background:#FFD54F;
+
+    animation:loading 1.2s infinite;
+}
+
+.loading-dots span:nth-child(2){
+
+    animation-delay:.2s;
+}
+
+.loading-dots span:nth-child(3){
+
+    animation-delay:.4s;
+}
+
+.loading-dots span:nth-child(4){
+
+    animation-delay:.6s;
+}
+
+
+/* ============================= */
+/* FLASH */
+/* ============================= */
+
+.flash{
+
+    position:absolute;
+
+    inset:0;
+
+    background:white;
+
+    opacity:0;
+
+    animation:flashAnimation 5s forwards;
+
+    pointer-events:none;
+}
+
+
+/* ============================= */
+/* Animations */
+/* ============================= */
+
+@keyframes loading{
+
+    0%,100%{
+
+        opacity:.3;
+
+        transform:scale(.6);
+    }
+
+    50%{
+
+        opacity:1;
+
+        transform:scale(1.4);
+    }
+
+}
+
+
+@keyframes cameraZoom{
+
+    0%{
+
+        transform:scale(.9);
+    }
+
+    50%{
+
+        transform:scale(1.15);
+    }
+
+    100%{
+
+        transform:scale(.9);
+    }
+
+}
+
+
+/* Flash occurs near the end */
+
+@keyframes flashAnimation{
+
+    0%{
+
+        opacity:0;
+    }
+
+    75%{
+
+        opacity:0;
+    }
+
+    82%{
+
+        opacity:1;
+    }
+
+    90%{
+
+        opacity:0;
+    }
+
+    100%{
+
+        opacity:0;
+    }
+
+}

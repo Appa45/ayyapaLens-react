@@ -1,0 +1,1297 @@
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+  position: relative;
+
+  width: 100%;
+  height: calc(100vh - 80px);
+  min-height: 650px;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   DARK OVERLAY
+========================================= */
+
+.overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.55);
+
+  backdrop-filter: blur(2px);
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   HERO CONTENT
+========================================= */
+
+.hero-content {
+  position: relative;
+
+  z-index: 5;
+
+  width: 85%;
+  max-width: 1200px;
+
+  margin-right: 400px;
+}
+
+
+/* =========================================
+   HERO TITLE
+========================================= */
+
+.hero h1 {
+  color: white;
+
+  font-size: 80px;
+
+  font-weight: 700;
+
+  line-height: 1.1;
+
+  margin-bottom: 20px;
+}
+
+.hero h1 span {
+  color: #f7c948;
+}
+
+
+/* =========================================
+   HERO DESCRIPTION
+========================================= */
+
+.hero p {
+  color: #ddd;
+
+  font-size: 22px;
+
+  margin-bottom: 40px;
+}
+
+
+/* =========================================
+   CAMERA ICON
+========================================= */
+
+.hero-camera-icon {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 18px;
+
+  border: 2px solid #ffd54f;
+
+  border-radius: 16px;
+
+  color: #ffd54f;
+
+  font-size: 28px;
+
+  background: rgba(0, 0, 0, 0.45);
+
+  box-shadow:
+    0 0 15px rgba(255, 213, 79, 0.25);
+
+  backdrop-filter: blur(8px);
+
+  position: relative;
+
+  z-index: 10;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.hero-camera-icon:hover {
+  transform: scale(1.08);
+
+  box-shadow:
+    0 0 30px rgba(255, 213, 79, 0.6);
+}
+
+
+/* =========================================
+   HERO BUTTONS
+========================================= */
+
+.hero-buttons {
+  display: flex;
+
+  gap: 20px;
+}
+
+
+/* =========================================
+   PRIMARY BUTTON
+========================================= */
+
+.primary-btn {
+  padding: 16px 35px;
+
+  border: none;
+
+  background: #f7c948;
+
+  color: #111;
+
+  font-weight: bold;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 25px rgba(247, 201, 72, 0.3);
+}
+
+
+/* =========================================
+   SECONDARY BUTTON
+========================================= */
+
+.secondary-btn {
+  padding: 16px 30px;
+
+  border: 2px solid white;
+
+  background: transparent;
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.secondary-btn:hover {
+  background: white;
+
+  color: black;
+}
+
+
+/* =========================================
+   SOCIAL BAR
+========================================= */
+
+.social-bar {
+  position: absolute;
+
+  left: 30px;
+
+  bottom: 100px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 25px;
+
+  z-index: 10;
+}
+
+.social-bar a {
+  color: white;
+
+  text-decoration: none;
+
+  transition: 0.3s;
+}
+
+.social-bar a:hover {
+  color: #f7c948;
+}
+
+
+/* =========================================
+   SCROLL INDICATOR
+========================================= */
+
+.scroll-indicator {
+  position: absolute;
+
+  bottom: 35px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  color: white;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 10px;
+
+  z-index: 30;
+}
+
+.scroll-indicator span {
+  font-size: 13px;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+
+/* =====================================================
+   HANGING BULB SCENE
+===================================================== */
+
+.hanging-scene {
+  position: absolute;
+
+  right: 4%;
+
+  top: 50%;
+
+  width: 430px;
+
+  height: 560px;
+
+  transform: translateY(-50%);
+
+  z-index: 20;
+
+  /*
+    IMPORTANT:
+    Keep pointer events enabled because
+    the bulb and plant need hover/click.
+  */
+  pointer-events: auto;
+}
+
+
+/* =====================================================
+   BULB WIRE
+===================================================== */
+
+.bulb-wire {
+  position: absolute;
+
+  top: -270px;
+
+  left: 50%;
+
+  width: 3px;
+
+  height: 170px;
+
+  transform: translateX(-50%);
+
+  background:
+    linear-gradient(
+      to bottom,
+      #050505,
+      #444
+    );
+
+  z-index: 25;
+
+  pointer-events: none;
+}
+
+.bulb-wire::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  left: 50%;
+
+  width: 28px;
+
+  height: 9px;
+
+  transform: translateX(-50%);
+
+  border-radius: 5px;
+
+  background: #111;
+
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+
+/* =====================================================
+   BULB BUTTON
+===================================================== */
+
+.hanging-bulb {
+  position: absolute;
+
+  top: -120px;
+
+  left: 50%;
+
+  width: 110px;
+
+  height: 140px;
+
+  transform: translateX(-50%);
+
+  border: none;
+
+  padding: 0;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  pointer-events: auto;
+
+  z-index: 50;
+}
+
+.hanging-bulb:focus {
+  outline: none;
+}
+
+.hanging-bulb:focus-visible {
+  outline: 2px solid #ffd54f;
+
+  outline-offset: 8px;
+}
+
+
+/* =====================================================
+   BULB HOLDER
+===================================================== */
+
+.bulb-holder {
+  position: absolute;
+
+  top: 0;
+
+  left: 50%;
+
+  width: 30px;
+
+  height: 28px;
+
+  transform: translateX(-50%);
+
+  border-radius: 5px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #111,
+      #555,
+      #111
+    );
+
+  z-index: 3;
+}
+
+
+/* =====================================================
+   BULB GLASS
+===================================================== */
+
+.bulb-glass {
+  position: absolute;
+
+  top: 20px;
+
+  left: 50%;
+
+  width: 65px;
+
+  height: 85px;
+
+  transform: translateX(-50%);
+
+  border-radius:
+    50%
+    50%
+    45%
+    45%;
+
+  background:
+    radial-gradient(
+      circle at 35% 25%,
+      rgba(255, 255, 255, 0.2),
+      rgba(40, 40, 40, 0.9) 55%,
+      #111 100%
+    );
+
+  border:
+    2px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow:
+    inset 0 0 20px rgba(255, 255, 255, 0.04);
+
+  transition:
+    background 0.5s ease,
+    box-shadow 0.5s ease,
+    border-color 0.5s ease;
+}
+
+
+/* =====================================================
+   BULB SCREW NECK
+===================================================== */
+
+.bulb-glass::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: -15px;
+
+  left: 50%;
+
+  width: 30px;
+
+  height: 18px;
+
+  transform: translateX(-50%);
+
+  border-radius: 3px;
+
+  background:
+    repeating-linear-gradient(
+      180deg,
+      #222 0px,
+      #222 3px,
+      #555 4px,
+      #222 6px
+    );
+}
+
+
+/* =====================================================
+   FILAMENT
+===================================================== */
+
+.bulb-filament {
+  position: absolute;
+
+  left: 50%;
+
+  top: 42px;
+
+  width: 18px;
+
+  height: 25px;
+
+  transform: translateX(-50%);
+
+  border-left: 2px solid #555;
+
+  border-right: 2px solid #555;
+
+  border-bottom: 2px solid #555;
+
+  transition:
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+
+/* =====================================================
+   BULB HOVER
+===================================================== */
+
+.hanging-bulb:hover .bulb-glass {
+  background:
+    radial-gradient(
+      circle,
+      #ffffff 0%,
+      #fffde7 20%,
+      #fff59d 40%,
+      #ffd54f 70%,
+      #f5a900 100%
+    );
+
+  border-color: #ffe082;
+
+  box-shadow:
+    0 0 10px #ffffff,
+    0 0 25px #ffd54f,
+    0 0 50px #ffc107,
+    0 0 90px rgba(255, 193, 7, 0.7),
+    0 0 150px rgba(255, 193, 7, 0.35);
+
+  animation:
+    bulbHoverGlow 1.8s ease-in-out infinite;
+}
+
+.hanging-bulb:hover .bulb-filament {
+  border-color: #ffffff;
+
+  box-shadow:
+    0 0 8px #ffffff,
+    0 0 20px #ffd54f;
+}
+
+@keyframes bulbHoverGlow {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(1.25);
+  }
+}
+
+
+/* =====================================================
+   LIGHT GLOW
+===================================================== */
+
+.light-glow {
+  position: absolute;
+
+  top: 130px;
+
+  left: 50%;
+
+  width: 450px;
+
+  height: 400px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(255, 213, 79, 0.35) 0%,
+      rgba(255, 193, 7, 0.16) 30%,
+      rgba(255, 193, 7, 0.06) 55%,
+      transparent 75%
+    );
+
+  filter: blur(15px);
+
+  opacity: 0;
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.8s ease;
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+
+/* =====================================================
+   LIGHT RAYS
+===================================================== */
+
+.light-rays {
+  position: absolute;
+
+  /*
+    This starts directly below the bulb.
+  */
+  top: 5px;
+
+  left: 50%;
+
+  width: 390px;
+
+  height: 320px;
+
+  transform: translateX(-50%);
+
+  background:
+    conic-gradient(
+      from 180deg at 50% 0%,
+
+      transparent 30deg,
+
+      rgba(255, 213, 79, 0.25) 45deg,
+
+      transparent 60deg,
+
+      transparent 120deg,
+
+      rgba(255, 213, 79, 0.20) 140deg,
+
+      transparent 160deg,
+
+      transparent 220deg,
+
+      rgba(255, 213, 79, 0.20) 240deg,
+
+      transparent 260deg,
+
+      transparent 300deg,
+
+      rgba(255, 213, 79, 0.25) 320deg,
+
+      transparent 340deg
+    );
+
+  opacity: 0;
+
+  transition:
+    opacity 0.5s ease;
+
+  pointer-events: none;
+
+  /*
+    Narrow at the bulb,
+    wide toward the plant/table.
+  */
+  clip-path:
+    polygon(
+      45% 0,
+      55% 0,
+      100% 100%,
+      0 100%
+    );
+
+  z-index: 2;
+}
+
+
+/* =====================================================
+   PLANT
+===================================================== */
+
+.plant {
+  position: absolute;
+
+  left: 30%;
+
+  bottom: 300px;
+
+  width: 190px;
+
+  height: 210px;
+
+  /*
+    DO NOT CHANGE THIS TRANSFORM
+    otherwise plant alignment moves.
+  */
+  transform: translateX(-50%);
+
+  z-index: 30;
+
+  pointer-events: auto;
+
+  transition:
+    filter 0.6s ease;
+}
+
+.plant img {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: contain;
+
+  display: block;
+
+  /*
+    Dark when nothing is happening.
+  */
+  filter:
+    grayscale(1)
+    brightness(0.2);
+
+  transition:
+    filter 0.6s ease;
+}
+
+
+/* =====================================================
+   PLANT HOVER
+===================================================== */
+
+.plant:hover img {
+  filter:
+    grayscale(0)
+    brightness(0.95)
+    saturate(1.15);
+
+  /*
+    Only image moves slightly.
+    Plant container alignment does not change.
+  */
+  animation:
+    plantFloat 3s ease-in-out infinite;
+}
+
+
+@keyframes plantFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.scene-table {
+  position: absolute;
+
+  left: 50%;
+
+  /*
+    Keep your current table position.
+  */
+  bottom: 190px;
+
+  width: 360px;
+
+  height: 130px;
+
+  /*
+    DO NOT CHANGE THIS.
+  */
+  transform: translateX(-50%);
+
+  z-index: 35;
+
+  pointer-events: auto;
+}
+
+
+/* =====================================================
+   TABLE SURFACE
+===================================================== */
+
+.table-surface {
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 28px;
+
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #5a4330,
+      #241a13
+    );
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.7);
+
+  transition:
+    box-shadow 0.8s ease;
+}
+
+
+/* =====================================================
+   TABLE FRONT
+===================================================== */
+
+.table-front {
+  position: absolute;
+
+  top: 25px;
+
+  left: 10px;
+
+  width: calc(100% - 20px);
+
+  height: 20px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #332419,
+      #1b120d
+    );
+}
+
+
+/* =====================================================
+   TABLE LEGS
+===================================================== */
+
+.table-leg {
+  position: absolute;
+
+  top: 42px;
+
+  width: 20px;
+
+  height: 90px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #17110d,
+      #3b291d,
+      #17110d
+    );
+
+  border-radius:
+    0 0 5px 5px;
+}
+
+.table-leg-left {
+  left: 25px;
+}
+
+.table-leg-right {
+  right: 25px;
+}
+
+
+/* =====================================================
+   CLICKED LIGHT - GLOW
+===================================================== */
+
+.light-on .light-glow {
+  opacity: 1;
+
+  transform:
+    translateX(-50%)
+    scale(1.15);
+}
+
+
+/* =====================================================
+   CLICKED LIGHT - RAYS
+===================================================== */
+
+.light-on .light-rays {
+  opacity: 1;
+
+  animation:
+    raysPulse 3s ease-in-out infinite;
+}
+
+
+@keyframes raysPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+
+/* =====================================================
+   CLICKED LIGHT - PLANT
+===================================================== */
+
+.light-on .plant img {
+  filter:
+    grayscale(0)
+    brightness(1.05)
+    saturate(1.15)
+    drop-shadow(
+      0 0 12px rgba(255, 213, 79, 0.35)
+    );
+}
+
+
+/* =====================================================
+   CLICKED LIGHT - TABLE
+===================================================== */
+
+.light-on .table-surface {
+  box-shadow:
+    0 0 25px rgba(255, 193, 7, 0.25),
+    0 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+
+/* =====================================================
+   BULB CLICKED ON
+===================================================== */
+
+.light-on .bulb-glass {
+  background:
+    radial-gradient(
+      circle,
+      #ffffff 0%,
+      #fffde7 20%,
+      #fff59d 40%,
+      #ffd54f 70%,
+      #f5a900 100%
+    );
+
+  border-color: #ffe082;
+
+  box-shadow:
+    0 0 10px #ffffff,
+    0 0 25px #ffd54f,
+    0 0 50px #ffc107,
+    0 0 100px rgba(255, 193, 7, 0.8),
+    0 0 160px rgba(255, 193, 7, 0.4);
+
+  animation:
+    bulbGlow 2s ease-in-out infinite;
+}
+
+
+.light-on .bulb-filament {
+  border-color: white;
+
+  box-shadow:
+    0 0 8px white,
+    0 0 20px white;
+}
+
+
+/* =====================================================
+   CLICK HINT
+===================================================== */
+
+.bulb-hint {
+  position: absolute;
+
+  bottom: 0;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  color: #ffd54f;
+
+  font-size: 13px;
+
+  letter-spacing: 1px;
+
+  white-space: nowrap;
+
+  pointer-events: none;
+
+  z-index: 50;
+}
+
+
+/* =====================================================
+   IMPORTANT:
+   BULB HOVER TURNS ON RAYS + PLANT
+===================================================== */
+
+/*
+  :has() looks at the bulb inside the scene.
+
+  When the bulb is hovered:
+  - rays appear
+  - glow appears
+  - plant becomes colored
+  - table gets some light
+*/
+
+
+.hanging-scene:has(.hanging-bulb:hover) .light-rays {
+  opacity: 1;
+
+  animation:
+    hoverRaysPulse 1.8s ease-in-out infinite;
+}
+
+
+.hanging-scene:has(.hanging-bulb:hover) .light-glow {
+  opacity: 1;
+
+  transform:
+    translateX(-50%)
+    scale(1.12);
+}
+
+
+.hanging-scene:has(.hanging-bulb:hover) .plant img {
+  filter:
+    grayscale(0)
+    brightness(1)
+    saturate(1.15)
+    drop-shadow(
+      0 0 15px rgba(255, 213, 79, 0.4)
+    );
+}
+
+
+.hanging-scene:has(.hanging-bulb:hover) .scene-table {
+  filter:
+    brightness(0.75)
+    grayscale(0);
+}
+
+
+@keyframes hoverRaysPulse {
+  0%,
+  100% {
+    opacity: 0.45;
+
+    filter:
+      brightness(0.9);
+  }
+
+  50% {
+    opacity: 1;
+
+    filter:
+      brightness(1.3);
+  }
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1200px) {
+
+  .hero-content {
+    margin-right: 300px;
+  }
+
+  .hero h1 {
+    font-size: 65px;
+  }
+
+  .hanging-scene {
+    right: -20px;
+
+    transform:
+      translateY(-50%)
+      scale(0.85);
+  }
+}
+
+
+@media (max-width: 950px) {
+
+  .hero-content {
+    width: 90%;
+
+    margin-right: 0;
+
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 55px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hanging-scene {
+    opacity: 0.35;
+
+    right: -70px;
+
+    transform:
+      translateY(-50%)
+      scale(0.75);
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .hero {
+    min-height: 700px;
+  }
+
+  .hero-content {
+    position: relative;
+
+    z-index: 60;
+
+    width: 90%;
+
+    margin: 0;
+
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 45px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 12px;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 220px;
+
+    justify-content: center;
+  }
+
+  .hanging-scene {
+    right: 50%;
+
+    top: auto;
+
+    bottom: -20px;
+
+    transform:
+      translateX(50%)
+      scale(0.65);
+
+    opacity: 0.7;
+  }
+}
+
+
+@media (max-width: 500px) {
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .hero-camera-icon {
+    width: 50px;
+
+    height: 50px;
+
+    font-size: 23px;
+
+    margin-left: auto;
+
+    margin-right: auto;
+  }
+
+  .hanging-scene {
+    bottom: -50px;
+
+    transform:
+      translateX(50%)
+      scale(0.52);
+
+    opacity: 0.65;
+  }
+
+  .scroll-indicator {
+    bottom: 15px;
+  }
+
+/* =====================================================
+   TABLET + MOBILE
+   COMPLETELY REMOVE ANIMATED SCENE
+===================================================== */
+
+@media screen and (max-width: 1024px) {
+  .hanging-scene {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media screen and (max-width: 768px) {
+  .hanging-scene {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+  }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media screen and (max-width: 500px) {
+  .hanging-scene {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+  }
+}
+  
+  
+}
