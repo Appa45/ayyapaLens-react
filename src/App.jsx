@@ -9,7 +9,7 @@ import Home from "./pages/Home";
 import Gallery from "./components/Gallery/Gallery";
 import About from "./components/about/About";
 import Contact from "./components/contact/Contact";
-import Journey from "./components/Journey";
+import Journey from "./components/journey/Journey";
 
 import "./App.css";
 
