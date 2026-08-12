@@ -1,5 +1,6 @@
 import "./About.css";
 import { motion } from "framer-motion";
+import SEO from "../SEO";
 
 // Replace with your own image
 import profile from "../../assets/images/appa2.png";

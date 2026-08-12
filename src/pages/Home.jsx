@@ -6,6 +6,7 @@ import {
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import SEO from "../components/SEO";
 
 import "./Home.css";
 
@@ -18,7 +19,14 @@ function Home() {
   const [lightOn, setLightOn] = useState(false);
 
   return (
-    <section className="hero">
+    <>
+
+      <SEO
+        title="Ayyappa Lens | Phone Photography"
+        description="Ayyappa Lens showcases phone photography, nature, travel and creative moments captured through a mobile phone lens."
+        canonical="/"
+      />
+         <section className="hero">
 
       {/* =====================================
           DARK OVERLAY
@@ -200,6 +208,9 @@ function Home() {
       </motion.div>
 
     </section>
+    
+    </>
+  
   );
 }
 

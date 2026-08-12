@@ -1,5 +1,6 @@
 import "./Journey.css";
 import { motion } from "framer-motion";
+import SEO from "../SEO";
 import {
   FaCode,
   FaReact,
@@ -55,7 +56,13 @@ const JOURNEY = [
 
 function Journey() {
   return (
-    <section className="journey-page">
+    <>
+          <SEO
+        title="Ayyappa's Photography & Developer Journey"
+        description="Explore Ayyappa's professional journey as a Frontend Developer, working with React, React Native, web applications and creative photography."
+        canonical="/journey"
+      />
+       <section className="journey-page">
 
       {/* =================================
           HEADER
@@ -189,6 +196,8 @@ function Journey() {
       </motion.div>
 
     </section>
+    </>
+ 
   );
 }
 

@@ -1,10 +1,19 @@
 import "./Contact.css";
+import SEO from "../SEO";
 import { motion } from "framer-motion";
 import { FaEnvelope, FaMapMarkerAlt, FaPaperPlane } from "react-icons/fa";
 
 function Contact() {
   return (
-    <section className="contact-page">
+    <>
+
+       <SEO
+        title="Contact Ayyappa | Photography & Frontend Development"
+        description="Contact Ayyappa for frontend development, React projects, photography and creative collaborations."
+        canonical="/contact"
+      />
+
+       <section className="contact-page">
       <div className="contact-overlay"></div>
 
       <div className="contact-container">
@@ -85,6 +94,9 @@ function Contact() {
 
       </div>
     </section>
+    
+    </>
+   
   );
 }
 

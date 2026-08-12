@@ -1,6 +1,7 @@
 import "./Gallery.css";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import SEO from "../SEO";
 import {
   FaTimes,
   FaChevronLeft,
@@ -160,7 +161,13 @@ function Gallery() {
   }, []);
 
   return (
-    <section className="gallery-page">
+    <>
+      <SEO
+        title="Phone Photography Gallery | Ayyappa Lens"
+        description="Explore Ayyappa Lens photography featuring nature, landscapes, travel, flowers, sunsets and everyday moments captured through phone photography."
+        canonical="/gallery"
+      />
+        <section className="gallery-page">
 
       {/* =================================
           HEADER
@@ -350,6 +357,8 @@ function Gallery() {
       </AnimatePresence>
 
     </section>
+    </>
+  
   );
 }
 
