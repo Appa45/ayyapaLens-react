@@ -54,11 +54,12 @@ function Footer() {
 
           <div className="social-icons">
 
-            <a href="#" target="_blank" rel="noreferrer">
+            <a href="https://www.instagram.com/s.v.ayyappanaik
+/" target="_blank" rel="noreferrer">
               <FaInstagram />
             </a>
 
-            <a href="#" target="_blank" rel="noreferrer">
+            <a href="https://www.linkedin.com/in/s-v-ayyappa-naik/" target="_blank" rel="noreferrer">
               <FaLinkedin />
             </a>
 
@@ -66,7 +67,7 @@ function Footer() {
               <FaGithub />
             </a>
 
-            <a href="#" target="_blank" rel="noreferrer">
+            <a href="https://www.youtube.com/@s.v.ayyappanaik1996" target="_blank" rel="noreferrer">
               <FaYoutube />
             </a>
 
