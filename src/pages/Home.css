@@ -4,7 +4,6 @@
 
 .hero {
   position: relative;
-
   width: 100%;
   height: calc(100vh - 80px);
   min-height: 650px;
@@ -27,7 +26,6 @@
 
 .overlay {
   position: absolute;
-
   inset: 0;
 
   background: rgba(0, 0, 0, 0.55);
@@ -47,7 +45,7 @@
 .hero-content {
   position: relative;
 
-  z-index: 5;
+  z-index: 10;
 
   width: 85%;
   max-width: 1200px;
@@ -57,14 +55,13 @@
 
 
 /* =========================================
-   HERO TITLE
+   TITLE
 ========================================= */
 
 .hero h1 {
   color: white;
 
   font-size: 80px;
-
   font-weight: 700;
 
   line-height: 1.1;
@@ -72,13 +69,14 @@
   margin-bottom: 20px;
 }
 
+
 .hero h1 span {
   color: #f7c948;
 }
 
 
 /* =========================================
-   HERO DESCRIPTION
+   DESCRIPTION
 ========================================= */
 
 .hero p {
@@ -91,58 +89,11 @@
 
 
 /* =========================================
-   CAMERA ICON
-========================================= */
-
-.hero-camera-icon {
-  width: 58px;
-  height: 58px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin-bottom: 18px;
-
-  border: 2px solid #ffd54f;
-
-  border-radius: 16px;
-
-  color: #ffd54f;
-
-  font-size: 28px;
-
-  background: rgba(0, 0, 0, 0.45);
-
-  box-shadow:
-    0 0 15px rgba(255, 213, 79, 0.25);
-
-  backdrop-filter: blur(8px);
-
-  position: relative;
-
-  z-index: 10;
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.hero-camera-icon:hover {
-  transform: scale(1.08);
-
-  box-shadow:
-    0 0 30px rgba(255, 213, 79, 0.6);
-}
-
-
-/* =========================================
-   HERO BUTTONS
+   BUTTONS
 ========================================= */
 
 .hero-buttons {
   display: flex;
-
   gap: 20px;
 }
 
@@ -166,8 +117,11 @@
 
   cursor: pointer;
 
-  transition: 0.3s;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
+
 
 .primary-btn:hover {
   transform: translateY(-3px);
@@ -193,6 +147,7 @@
   display: flex;
 
   align-items: center;
+  justify-content: center;
 
   gap: 10px;
 
@@ -200,46 +155,19 @@
 
   cursor: pointer;
 
-  transition: 0.3s;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
 }
+
 
 .secondary-btn:hover {
   background: white;
 
   color: black;
-}
 
-
-/* =========================================
-   SOCIAL BAR
-========================================= */
-
-.social-bar {
-  position: absolute;
-
-  left: 30px;
-
-  bottom: 100px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 25px;
-
-  z-index: 10;
-}
-
-.social-bar a {
-  color: white;
-
-  text-decoration: none;
-
-  transition: 0.3s;
-}
-
-.social-bar a:hover {
-  color: #f7c948;
+  transform: translateY(-3px);
 }
 
 
@@ -251,7 +179,6 @@
   position: absolute;
 
   bottom: 35px;
-
   left: 50%;
 
   transform: translateX(-50%);
@@ -259,7 +186,6 @@
   color: white;
 
   display: flex;
-
   flex-direction: column;
 
   align-items: center;
@@ -268,6 +194,7 @@
 
   z-index: 30;
 }
+
 
 .scroll-indicator span {
   font-size: 13px;
@@ -279,824 +206,526 @@
 
 
 /* =====================================================
-   HANGING BULB SCENE
+   FLOATING PHOTO SCENE
 ===================================================== */
 
-.hanging-scene {
+.floating-photo-scene {
   position: absolute;
 
   right: 4%;
+  top: 20%;
 
-  top: 50%;
-
-  width: 430px;
-
+  width: 500px;
   height: 560px;
 
-  transform: translateY(-50%);
+  z-index: 8;
 
-  z-index: 20;
+  perspective: 1200px;
 
-  /*
-    IMPORTANT:
-    Keep pointer events enabled because
-    the bulb and plant need hover/click.
-  */
+  /* IMPORTANT:
+     Allows hover to reach the photo card */
   pointer-events: auto;
 }
 
 
 /* =====================================================
-   BULB WIRE
+   BACKGROUND GLOW
 ===================================================== */
 
-.bulb-wire {
-  position: absolute;
-
-  top: -270px;
-
-  left: 50%;
-
-  width: 3px;
-
-  height: 170px;
-
-  transform: translateX(-50%);
-
-  background:
-    linear-gradient(
-      to bottom,
-      #050505,
-      #444
-    );
-
-  z-index: 25;
-
-  pointer-events: none;
-}
-
-.bulb-wire::before {
+.floating-photo-scene::before {
   content: "";
 
   position: absolute;
 
-  top: 0;
-
-  left: 50%;
-
-  width: 28px;
-
-  height: 9px;
-
-  transform: translateX(-50%);
-
-  border-radius: 5px;
-
-  background: #111;
-
-  box-shadow:
-    0 2px 6px rgba(0, 0, 0, 0.8);
-}
-
-
-/* =====================================================
-   BULB BUTTON
-===================================================== */
-
-.hanging-bulb {
-  position: absolute;
-
-  top: -120px;
-
-  left: 50%;
-
-  width: 110px;
-
-  height: 140px;
-
-  transform: translateX(-50%);
-
-  border: none;
-
-  padding: 0;
-
-  background: transparent;
-
-  cursor: pointer;
-
-  pointer-events: auto;
-
-  z-index: 50;
-}
-
-.hanging-bulb:focus {
-  outline: none;
-}
-
-.hanging-bulb:focus-visible {
-  outline: 2px solid #ffd54f;
-
-  outline-offset: 8px;
-}
-
-
-/* =====================================================
-   BULB HOLDER
-===================================================== */
-
-.bulb-holder {
-  position: absolute;
-
-  top: 0;
-
-  left: 50%;
-
-  width: 30px;
-
-  height: 28px;
-
-  transform: translateX(-50%);
-
-  border-radius: 5px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #111,
-      #555,
-      #111
-    );
-
-  z-index: 3;
-}
-
-
-/* =====================================================
-   BULB GLASS
-===================================================== */
-
-.bulb-glass {
-  position: absolute;
-
-  top: 20px;
-
-  left: 50%;
-
-  width: 65px;
-
-  height: 85px;
-
-  transform: translateX(-50%);
-
-  border-radius:
-    50%
-    50%
-    45%
-    45%;
-
-  background:
-    radial-gradient(
-      circle at 35% 25%,
-      rgba(255, 255, 255, 0.2),
-      rgba(40, 40, 40, 0.9) 55%,
-      #111 100%
-    );
-
-  border:
-    2px solid rgba(255, 255, 255, 0.1);
-
-  box-shadow:
-    inset 0 0 20px rgba(255, 255, 255, 0.04);
-
-  transition:
-    background 0.5s ease,
-    box-shadow 0.5s ease,
-    border-color 0.5s ease;
-}
-
-
-/* =====================================================
-   BULB SCREW NECK
-===================================================== */
-
-.bulb-glass::after {
-  content: "";
-
-  position: absolute;
-
-  bottom: -15px;
-
-  left: 50%;
-
-  width: 30px;
-
-  height: 18px;
-
-  transform: translateX(-50%);
-
-  border-radius: 3px;
-
-  background:
-    repeating-linear-gradient(
-      180deg,
-      #222 0px,
-      #222 3px,
-      #555 4px,
-      #222 6px
-    );
-}
-
-
-/* =====================================================
-   FILAMENT
-===================================================== */
-
-.bulb-filament {
-  position: absolute;
-
-  left: 50%;
-
-  top: 42px;
-
-  width: 18px;
-
-  height: 25px;
-
-  transform: translateX(-50%);
-
-  border-left: 2px solid #555;
-
-  border-right: 2px solid #555;
-
-  border-bottom: 2px solid #555;
-
-  transition:
-    border-color 0.4s ease,
-    box-shadow 0.4s ease;
-}
-
-
-/* =====================================================
-   BULB HOVER
-===================================================== */
-
-.hanging-bulb:hover .bulb-glass {
-  background:
-    radial-gradient(
-      circle,
-      #ffffff 0%,
-      #fffde7 20%,
-      #fff59d 40%,
-      #ffd54f 70%,
-      #f5a900 100%
-    );
-
-  border-color: #ffe082;
-
-  box-shadow:
-    0 0 10px #ffffff,
-    0 0 25px #ffd54f,
-    0 0 50px #ffc107,
-    0 0 90px rgba(255, 193, 7, 0.7),
-    0 0 150px rgba(255, 193, 7, 0.35);
-
-  animation:
-    bulbHoverGlow 1.8s ease-in-out infinite;
-}
-
-.hanging-bulb:hover .bulb-filament {
-  border-color: #ffffff;
-
-  box-shadow:
-    0 0 8px #ffffff,
-    0 0 20px #ffd54f;
-}
-
-@keyframes bulbHoverGlow {
-  0%,
-  100% {
-    filter: brightness(1);
-  }
-
-  50% {
-    filter: brightness(1.25);
-  }
-}
-
-
-/* =====================================================
-   LIGHT GLOW
-===================================================== */
-
-.light-glow {
-  position: absolute;
-
-  top: 130px;
-
-  left: 50%;
-
-  width: 450px;
-
-  height: 400px;
-
-  transform: translateX(-50%);
+  width: 380px;
+  height: 460px;
+
+  left: 60px;
+  top: 45px;
 
   border-radius: 50%;
 
   background:
     radial-gradient(
       ellipse,
-      rgba(255, 213, 79, 0.35) 0%,
-      rgba(255, 193, 7, 0.16) 30%,
-      rgba(255, 193, 7, 0.06) 55%,
-      transparent 75%
+      rgba(247, 201, 72, 0.14),
+      rgba(247, 201, 72, 0.04) 45%,
+      transparent 72%
     );
 
-  filter: blur(15px);
+  filter: blur(45px);
 
-  opacity: 0;
-
-  transition:
-    opacity 0.6s ease,
-    transform 0.8s ease;
+  z-index: 0;
 
   pointer-events: none;
-
-  z-index: 1;
 }
 
 
 /* =====================================================
-   LIGHT RAYS
+   PHOTO CARDS
 ===================================================== */
 
-.light-rays {
+.photo-card {
   position: absolute;
 
-  /*
-    This starts directly below the bulb.
-  */
-  top: 5px;
+  padding: 10px;
 
-  left: 50%;
-
-  width: 390px;
-
-  height: 320px;
-
-  transform: translateX(-50%);
+  border-radius: 18px;
 
   background:
-    conic-gradient(
-      from 180deg at 50% 0%,
-
-      transparent 30deg,
-
-      rgba(255, 213, 79, 0.25) 45deg,
-
-      transparent 60deg,
-
-      transparent 120deg,
-
-      rgba(255, 213, 79, 0.20) 140deg,
-
-      transparent 160deg,
-
-      transparent 220deg,
-
-      rgba(255, 213, 79, 0.20) 240deg,
-
-      transparent 260deg,
-
-      transparent 300deg,
-
-      rgba(255, 213, 79, 0.25) 320deg,
-
-      transparent 340deg
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.16),
+      rgba(255, 255, 255, 0.04)
     );
 
-  opacity: 0;
+  border:
+    1px solid rgba(255, 255, 255, 0.18);
 
-  transition:
-    opacity 0.5s ease;
+  backdrop-filter: blur(10px);
 
-  pointer-events: none;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.55),
+    0 10px 25px rgba(0, 0, 0, 0.3);
 
-  /*
-    Narrow at the bulb,
-    wide toward the plant/table.
-  */
-  clip-path:
-    polygon(
-      45% 0,
-      55% 0,
-      100% 100%,
-      0 100%
-    );
+  overflow: hidden;
 
-  z-index: 2;
+  transform-style: preserve-3d;
 }
 
 
 /* =====================================================
-   PLANT
+   BACK PHOTO
 ===================================================== */
 
-.plant {
-  position: absolute;
+.photo-card-back {
+  top: 80px;
+  left: 40px;
 
-  left: 30%;
+  width: 245px;
 
-  bottom: 300px;
+  opacity: 0.38;
 
-  width: 190px;
+  z-index: 1;
 
-  height: 210px;
+  filter:
+    brightness(0.55)
+    saturate(0.7);
 
-  /*
-    DO NOT CHANGE THIS TRANSFORM
-    otherwise plant alignment moves.
-  */
-  transform: translateX(-50%);
-
-  z-index: 30;
-
-  pointer-events: auto;
-
-  transition:
-    filter 0.6s ease;
+  transform: rotate(-9deg);
 }
 
-.plant img {
-  width: 100%;
 
-  height: 100%;
-
-  object-fit: contain;
-
+.photo-card-back img {
   display: block;
 
-  /*
-    Dark when nothing is happening.
-  */
+  width: 100%;
+  height: 330px;
+
+  object-fit: cover;
+
+  border-radius: 10px;
+}
+
+
+/* =====================================================
+   MIDDLE PHOTO
+===================================================== */
+
+.photo-card-middle {
+  top: 100px;
+  right: 25px;
+
+  width: 250px;
+
+  opacity: 0.5;
+
+  z-index: 2;
+
   filter:
-    grayscale(1)
-    brightness(0.2);
+    brightness(0.65)
+    saturate(0.8);
+
+  transform: rotate(8deg);
+}
+
+
+.photo-card-middle img {
+  display: block;
+
+  width: 100%;
+  height: 340px;
+
+  object-fit: cover;
+
+  border-radius: 10px;
+}
+
+
+/* =====================================================
+   MAIN PHOTO CARD
+===================================================== */
+
+.photo-card-main {
+  top: 35px;
+  left: 100px;
+
+  width: 285px;
+
+  z-index: 5;
+
+  cursor: pointer;
+
+  transform: rotate(3deg);
 
   transition:
-    filter 0.6s ease;
+    box-shadow 0.6s ease;
+}
+
+
+/*
+   IMPORTANT:
+   Don't use transform here for hover because
+   Framer Motion is already controlling transform.
+*/
+
+.photo-card-main:hover {
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.7),
+    0 0 40px rgba(247, 201, 72, 0.18);
 }
 
 
 /* =====================================================
-   PLANT HOVER
+   PHOTO HEADER
 ===================================================== */
 
-.plant:hover img {
-  filter:
-    grayscale(0)
-    brightness(0.95)
-    saturate(1.15);
+.photo-card-header {
+  display: flex;
 
-  /*
-    Only image moves slightly.
-    Plant container alignment does not change.
-  */
-  animation:
-    plantFloat 3s ease-in-out infinite;
-}
+  align-items: center;
 
+  gap: 10px;
 
-@keyframes plantFloat {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
+  padding:
+    4px
+    5px
+    10px;
 
-  50% {
-    transform: translateY(-3px);
-  }
+  color: #f7c948;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 1.5px;
 }
 
 
 /* =====================================================
-   TABLE
+   CAMERA CIRCLE
 ===================================================== */
 
-.scene-table {
-  position: absolute;
+.camera-circle {
+  width: 28px;
+  height: 28px;
 
-  left: 50%;
+  display: flex;
 
-  /*
-    Keep your current table position.
-  */
-  bottom: 190px;
+  align-items: center;
+  justify-content: center;
 
-  width: 360px;
+  border-radius: 50%;
 
-  height: 130px;
+  background:
+    rgba(247, 201, 72, 0.12);
 
-  /*
-    DO NOT CHANGE THIS.
-  */
-  transform: translateX(-50%);
+  border:
+    1px solid rgba(247, 201, 72, 0.45);
 
-  z-index: 35;
+  color: #f7c948;
 
-  pointer-events: auto;
+  flex-shrink: 0;
+}
+
+
+.camera-circle svg {
+  font-size: 13px;
 }
 
 
 /* =====================================================
-   TABLE SURFACE
+   MAIN PHOTO
 ===================================================== */
 
-.table-surface {
+.main-photo {
+  position: relative;
+
+  width: 100%;
+  height: 365px;
+
+  overflow: hidden;
+
+  border-radius: 12px;
+
+  background: #111;
+
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   BOTH IMAGES
+===================================================== */
+
+.main-photo .photo-image {
   position: absolute;
 
   top: 0;
-
   left: 0;
 
   width: 100%;
+  height: 100%;
 
-  height: 28px;
+  display: block;
 
-  border-radius: 8px;
+  object-fit: cover;
 
-  background:
-    linear-gradient(
-      180deg,
-      #5a4330,
-      #241a13
-    );
-
-  box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.7);
+  border-radius: 12px;
 
   transition:
-    box-shadow 0.8s ease;
+    opacity 0.65s ease,
+    transform 0.8s ease,
+    filter 0.65s ease;
+
+  /* Images themselves don't need mouse events */
+  pointer-events: none;
 }
 
 
 /* =====================================================
-   TABLE FRONT
+   APPA2 - DEFAULT IMAGE
 ===================================================== */
 
-.table-front {
-  position: absolute;
-
-  top: 25px;
-
-  left: 10px;
-
-  width: calc(100% - 20px);
-
-  height: 20px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #332419,
-      #1b120d
-    );
-}
-
-
-/* =====================================================
-   TABLE LEGS
-===================================================== */
-
-.table-leg {
-  position: absolute;
-
-  top: 42px;
-
-  width: 20px;
-
-  height: 90px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #17110d,
-      #3b291d,
-      #17110d
-    );
-
-  border-radius:
-    0 0 5px 5px;
-}
-
-.table-leg-left {
-  left: 25px;
-}
-
-.table-leg-right {
-  right: 25px;
-}
-
-
-/* =====================================================
-   CLICKED LIGHT - GLOW
-===================================================== */
-
-.light-on .light-glow {
+.main-photo .photo-image-default {
   opacity: 1;
 
-  transform:
-    translateX(-50%)
-    scale(1.15);
-}
+  z-index: 1;
 
+  transform: scale(1);
 
-/* =====================================================
-   CLICKED LIGHT - RAYS
-===================================================== */
-
-.light-on .light-rays {
-  opacity: 1;
-
-  animation:
-    raysPulse 3s ease-in-out infinite;
-}
-
-
-@keyframes raysPulse {
-  0%,
-  100% {
-    opacity: 0.5;
-  }
-
-  50% {
-    opacity: 1;
-  }
-}
-
-
-/* =====================================================
-   CLICKED LIGHT - PLANT
-===================================================== */
-
-.light-on .plant img {
   filter:
-    grayscale(0)
-    brightness(1.05)
-    saturate(1.15)
-    drop-shadow(
-      0 0 12px rgba(255, 213, 79, 0.35)
-    );
+    brightness(0.9)
+    saturate(0.9);
 }
 
 
 /* =====================================================
-   CLICKED LIGHT - TABLE
+   APPA1 - HOVER IMAGE
 ===================================================== */
 
-.light-on .table-surface {
-  box-shadow:
-    0 0 25px rgba(255, 193, 7, 0.25),
-    0 8px 20px rgba(0, 0, 0, 0.7);
+.main-photo .photo-image-hover {
+  opacity: 0;
+
+  z-index: 2;
+
+  transform: scale(1.08);
+
+  filter:
+    brightness(1)
+    saturate(1.1);
 }
 
 
 /* =====================================================
-   BULB CLICKED ON
+   HOVER -> APPA2 DISAPPEARS
 ===================================================== */
 
-.light-on .bulb-glass {
-  background:
-    radial-gradient(
-      circle,
-      #ffffff 0%,
-      #fffde7 20%,
-      #fff59d 40%,
-      #ffd54f 70%,
-      #f5a900 100%
-    );
+.photo-card-main:hover
+.photo-image-default {
+  opacity: 0;
 
-  border-color: #ffe082;
+  transform: scale(1.08);
 
-  box-shadow:
-    0 0 10px #ffffff,
-    0 0 25px #ffd54f,
-    0 0 50px #ffc107,
-    0 0 100px rgba(255, 193, 7, 0.8),
-    0 0 160px rgba(255, 193, 7, 0.4);
-
-  animation:
-    bulbGlow 2s ease-in-out infinite;
-}
-
-
-.light-on .bulb-filament {
-  border-color: white;
-
-  box-shadow:
-    0 0 8px white,
-    0 0 20px white;
+  filter:
+    brightness(0.8)
+    saturate(0.8);
 }
 
 
 /* =====================================================
-   CLICK HINT
+   HOVER -> APPA1 APPEARS
 ===================================================== */
 
-.bulb-hint {
+.photo-card-main:hover
+.photo-image-hover {
+  opacity: 1;
+
+  transform: scale(1);
+
+  filter:
+    brightness(1)
+    saturate(1.15);
+}
+
+
+/* =====================================================
+   PHOTO SHINE
+===================================================== */
+
+.photo-shine {
   position: absolute;
 
-  bottom: 0;
+  inset: 0;
 
-  left: 50%;
-
-  transform: translateX(-50%);
-
-  color: #ffd54f;
-
-  font-size: 13px;
-
-  letter-spacing: 1px;
-
-  white-space: nowrap;
+  z-index: 5;
 
   pointer-events: none;
 
-  z-index: 50;
+  background:
+    linear-gradient(
+      115deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.2) 48%,
+      transparent 70%
+    );
+
+  transform: translateX(-120%);
+
+  transition:
+    transform 1s ease;
+}
+
+
+.photo-card-main:hover
+.photo-shine {
+  transform: translateX(120%);
 }
 
 
 /* =====================================================
-   IMPORTANT:
-   BULB HOVER TURNS ON RAYS + PLANT
+   PHOTO FOOTER
 ===================================================== */
 
-/*
-  :has() looks at the bulb inside the scene.
+.photo-card-footer {
+  display: flex;
 
-  When the bulb is hovered:
-  - rays appear
-  - glow appears
-  - plant becomes colored
-  - table gets some light
-*/
+  align-items: center;
+  justify-content: space-between;
 
+  padding:
+    10px
+    5px
+    4px;
 
-.hanging-scene:has(.hanging-bulb:hover) .light-rays {
-  opacity: 1;
+  color: #ddd;
 
-  animation:
-    hoverRaysPulse 1.8s ease-in-out infinite;
+  font-size: 10px;
+
+  letter-spacing: 0.6px;
 }
 
 
-.hanging-scene:has(.hanging-bulb:hover) .light-glow {
-  opacity: 1;
+.photo-date {
+  color: #f7c948;
 
-  transform:
-    translateX(-50%)
-    scale(1.12);
-}
-
-
-.hanging-scene:has(.hanging-bulb:hover) .plant img {
-  filter:
-    grayscale(0)
-    brightness(1)
-    saturate(1.15)
-    drop-shadow(
-      0 0 15px rgba(255, 213, 79, 0.4)
-    );
-}
-
-
-.hanging-scene:has(.hanging-bulb:hover) .scene-table {
-  filter:
-    brightness(0.75)
-    grayscale(0);
-}
-
-
-@keyframes hoverRaysPulse {
-  0%,
-  100% {
-    opacity: 0.45;
-
-    filter:
-      brightness(0.9);
-  }
-
-  50% {
-    opacity: 1;
-
-    filter:
-      brightness(1.3);
-  }
+  font-weight: 600;
 }
 
 
 /* =====================================================
-   RESPONSIVE
+   FLOATING CAMERA
+===================================================== */
+
+.floating-camera-icon {
+  position: absolute;
+
+  right: 20px;
+  bottom: 75px;
+
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: #f7c948;
+
+  background:
+    rgba(0, 0, 0, 0.45);
+
+  border:
+    1px solid rgba(247, 201, 72, 0.45);
+
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(247, 201, 72, 0.12);
+
+  font-size: 21px;
+
+  z-index: 10;
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   DECORATIVE DOTS
+===================================================== */
+
+.photo-dot {
+  position: absolute;
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #f7c948;
+
+  box-shadow:
+    0 0 15px rgba(247, 201, 72, 0.7);
+
+  z-index: 10;
+
+  pointer-events: none;
+}
+
+
+.dot-one {
+  top: 40px;
+  right: 45px;
+}
+
+
+.dot-two {
+  left: 45px;
+  bottom: 90px;
+
+  width: 5px;
+  height: 5px;
+}
+
+
+/* =====================================================
+   PERFORMANCE
+===================================================== */
+
+.photo-card-back,
+.photo-card-middle,
+.photo-card-main {
+  will-change: transform;
+}
+
+
+/* =====================================================
+   TABLET / SMALL LAPTOP
 ===================================================== */
 
 @media (max-width: 1200px) {
@@ -1109,17 +738,34 @@
     font-size: 65px;
   }
 
-  .hanging-scene {
-    right: -20px;
-
-    transform:
-      translateY(-50%)
-      scale(0.85);
+  .floating-photo-scene {
+    right: -40px;
+    transform: translateY(-50%) scale(0.85);
   }
 }
 
 
-@media (max-width: 950px) {
+/* =====================================================
+   TABLET
+   HIDE FLOATING PHOTOS
+===================================================== */
+
+@media screen and (max-width: 1024px) {
+
+  .floating-photo-scene {
+    display: none !important;
+
+    visibility: hidden !important;
+
+    opacity: 0 !important;
+
+    width: 0 !important;
+    height: 0 !important;
+
+    overflow: hidden !important;
+
+    pointer-events: none !important;
+  }
 
   .hero-content {
     width: 90%;
@@ -1136,29 +782,38 @@
   .hero-buttons {
     justify-content: center;
   }
-
-  .hanging-scene {
-    opacity: 0.35;
-
-    right: -70px;
-
-    transform:
-      translateY(-50%)
-      scale(0.75);
-  }
 }
 
 
-@media (max-width: 768px) {
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media screen and (max-width: 768px) {
 
   .hero {
     min-height: 700px;
   }
 
+  .floating-photo-scene {
+    display: none !important;
+
+    visibility: hidden !important;
+
+    opacity: 0 !important;
+
+    width: 0 !important;
+    height: 0 !important;
+
+    overflow: hidden !important;
+
+    pointer-events: none !important;
+  }
+
   .hero-content {
     position: relative;
 
-    z-index: 60;
+    z-index: 20;
 
     width: 90%;
 
@@ -1190,89 +845,8 @@
     justify-content: center;
   }
 
-  .hanging-scene {
-    right: 50%;
-
-    top: auto;
-
-    bottom: -20px;
-
-    transform:
-      translateX(50%)
-      scale(0.65);
-
-    opacity: 0.7;
-  }
-}
-
-
-@media (max-width: 500px) {
-
-  .hero h1 {
-    font-size: 38px;
-  }
-
-  .hero p {
-    font-size: 16px;
-  }
-
-  .hero-camera-icon {
-    width: 50px;
-
-    height: 50px;
-
-    font-size: 23px;
-
-    margin-left: auto;
-
-    margin-right: auto;
-  }
-
-  .hanging-scene {
-    bottom: -50px;
-
-    transform:
-      translateX(50%)
-      scale(0.52);
-
-    opacity: 0.65;
-  }
-
   .scroll-indicator {
-    bottom: 15px;
-  }
-
-/* =====================================================
-   TABLET + MOBILE
-   COMPLETELY REMOVE ANIMATED SCENE
-===================================================== */
-
-@media screen and (max-width: 1024px) {
-  .hanging-scene {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    width: 0 !important;
-    height: 0 !important;
-    overflow: hidden !important;
-    pointer-events: none !important;
-  }
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media screen and (max-width: 768px) {
-  .hanging-scene {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    width: 0 !important;
-    height: 0 !important;
-    overflow: hidden !important;
-    pointer-events: none !important;
+    bottom: 25px;
   }
 }
 
@@ -1282,16 +856,37 @@
 ===================================================== */
 
 @media screen and (max-width: 500px) {
-  .hanging-scene {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    width: 0 !important;
-    height: 0 !important;
-    overflow: hidden !important;
-    pointer-events: none !important;
+
+  .hero {
+    min-height: 650px;
   }
-}
-  
-  
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .hero-buttons {
+    gap: 10px;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 210px;
+
+    padding:
+      14px
+      25px;
+  }
+
+  .scroll-indicator {
+    bottom: 15px;
+  }
+
+  .scroll-indicator span {
+    font-size: 11px;
+  }
 }
